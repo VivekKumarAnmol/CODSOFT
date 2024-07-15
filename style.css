@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    background-color: #cac7ff;
+    margin: 0;
+}
+
+.todo-container {
+    background: #d7cdfe;
+    border: 1px solid #030008;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.task-creator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.task-creator input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.task-creator button {
+    padding: 8px 16px;
+    border: 1px solid #28a77f;
+    background-color: #388249;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.task-creator button:hover {
+    background-color: #58508d;
+}
+
+.task-list .task-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #080000;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.task-list .task-item .task-name {
+    flex: 1;
+    text-align: left;
+}
+
+.task-list .task-item .edit-button,
+.task-list .task-item .delete-button {
+    padding: 5px 10px;
+    border: 1px solid #58508d;
+    background-color: #58508d;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.task-list .task-item .delete-button {
+    border-color: #58508d;
+    background-color: #58508d;
+}
+
+.task-list .task-item .edit-button:hover {
+    background-color: #6461ff;
+}
+
+.task-list .task-item .delete-button:hover {
+    background-color: #ff6361;
+}
