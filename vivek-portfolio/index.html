@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-right">
+        <ul>
+          <li><a href="#home"><h3>Home</h3></a></li>
+          <li><a href="#projects"><h3>Projects</h3></a></li>
+          <li><a href="#skills"><h3>Skills</h3></a></li>
+          <li><a href="#contact"><h3>Contact</h3></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="home-content">
+        <div class="home-left">
+          <h1>Vivek Kr Anmol <br><p><h2>FullStack Developer</h2></p></h1>
+          
+
+        </div>
+        <div class="home-right">
+          <img src="Vivenpic.png" alt="Your Picture" style="width: 100%;">
+        </div>
+      </div>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <form id="project-form">
+          <input type="text" id="project-name" placeholder="Project Name" required>
+          <input type="text" id="project-description" placeholder="Project Description" required>
+          <button type="submit">Add Project</button>
+        </form>
+        <ul class="project-list" id="project-list">
+           <!-- Project items will be added here dynamically -->
+        </ul>
+      </section> 
+    <section id="skills">
+      <h2>Skills</h2>
+      <!-- Add your skills here -->
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <!-- Add your contact information here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Vivek Kr Anmol. All rights reserved.</p>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>
