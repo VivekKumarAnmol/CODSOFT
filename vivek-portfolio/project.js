@@ -4,7 +4,7 @@
 function loadProjects() {
   const projects = JSON.parse(localStorage.getItem('projects')) || [];
   projects.forEach(project => {
-    addProjectToDOM(project.name, project.description);
+      addProjectToDOM(project.name, project.description);
   });
 }
 
@@ -25,15 +25,15 @@ function addProjectToDOM(projectName, projectDescription) {
   editButton.className = 'edit-button';
   editButton.textContent = 'Edit';
   editButton.onclick = function () {
-    editProject(projectItem, projectName, projectDescription);
+      editProject(projectItem, projectName, projectDescription);
   };
 
   const deleteButton = document.createElement('button');
   deleteButton.className = 'delete-button';
   deleteButton.textContent = 'Delete';
   deleteButton.onclick = function () {
-    projectItem.remove();
-    deleteProjectFromStorage(projectName); // Remove from localStorage
+      projectItem.remove();
+      deleteProjectFromStorage(projectName); // Remove from localStorage
   };
 
   projectItem.appendChild(nameElement);
@@ -51,8 +51,8 @@ function deleteProjectFromStorage(projectName) {
   localStorage.setItem('projects', JSON.stringify(updatedProjects));
 }
 
-// Function to handle form submission
-function handleFormSubmit(event) {
+// Function to handle project form submission
+function handleProjectFormSubmit(event) {
   event.preventDefault(); // Prevent form submission
 
   const projectName = document.getElementById('project-name').value;
@@ -60,8 +60,8 @@ function handleFormSubmit(event) {
 
   // Validate input
   if (!projectName || !projectDescription) {
-    alert('Please fill in both fields.');
-    return;
+      alert('Please fill in both fields.');
+      return;
   }
 
   // Add project to localStorage
@@ -91,8 +91,76 @@ function editProject(projectItem, projectName, projectDescription) {
   document.getElementById('project-name').focus();
 }
 
-// Event listener for form submission
-document.getElementById('project-form').addEventListener('submit', handleFormSubmit);
+// Function to load skills from localStorage
+function loadSkills() {
+  const skills = JSON.parse(localStorage.getItem('skills')) || [];
+  skills.forEach(skill => {
+      addSkillToDOM(skill);
+  });
+}
 
-// Load projects when the page is loaded
-window.onload = loadProjects;
+// Function to add skill to the DOM
+function addSkillToDOM(skillName) {
+  const skillItem = document.createElement('li');
+  skillItem.className = 'skill-item';
+
+  const nameElement = document.createElement('span');
+  nameElement.className = 'skill-name';
+  nameElement.textContent = skillName;
+
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'delete-button';
+  deleteButton.textContent = 'Delete';
+  deleteButton.onclick = function () {
+      skillItem.remove(); // Remove the skill item from the UI
+      deleteSkillFromStorage(skillName); // Remove from localStorage
+  };
+
+  skillItem.appendChild(nameElement);
+  skillItem.appendChild(deleteButton);
+
+  document.getElementById('skill-list').appendChild(skillItem);
+}
+
+// Function to delete skill from localStorage
+function deleteSkillFromStorage(skillName) {
+  const skills = JSON.parse(localStorage.getItem('skills')) || [];
+  const updatedSkills = skills.filter(skill => skill !== skillName);
+  localStorage.setItem('skills', JSON.stringify(updatedSkills));
+}
+
+// Function to handle skill form submission
+function handleSkillFormSubmit(event) {
+  event.preventDefault(); // Prevent form submission
+
+  const skillName = document.getElementById('skill-name').value;
+
+  // Validate input
+  if (!skillName) {
+      alert('Please enter a skill name.');
+      return;
+  }
+
+  // Add skill to localStorage
+  const skills = JSON.parse(localStorage.getItem('skills')) || [];
+  skills.push(skillName);
+  localStorage.setItem('skills', JSON.stringify(skills));
+
+  // Add skill to DOM
+  addSkillToDOM(skillName);
+
+  // Clear input field
+  document.getElementById('skill-name').value = '';
+}
+
+// Event listener for project form submission
+document.getElementById('project-form').addEventListener('submit', handleProjectFormSubmit);
+
+// Event listener for skill form submission
+document.getElementById('skill-form').addEventListener('submit', handleSkillFormSubmit);
+
+// Load projects and skills when the page is loaded
+window.onload = function () {
+  loadProjects();
+  loadSkills();
+};

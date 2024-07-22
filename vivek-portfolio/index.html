@@ -6,6 +6,8 @@
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="project.css">
+  <link rel="stylesheet" href="skill.css">
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
   <header>
@@ -45,16 +47,28 @@
         <ul class="project-list" id="project-list">
            <!-- Project items will be added here dynamically -->
         </ul>
-      </section> 
-    <section id="skills">
-      <h2>Skills</h2>
-      <!-- Add your skills here -->
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <form id="skill-form">
+            <input type="text" id="skill-name" placeholder="Skill Name" required>
+            <button type="submit" class="add-button">Add Skill</button>
+        </form>
+        <ul class="skill-list" id="skill-list">
+            <!-- Skill items will be added here dynamically -->
+        </ul>
     </section>
+      
 
     <section id="contact">
       <h2>Contact</h2>
-      <!-- Add your contact information here -->
-    </section>
+      <p>Email: <a href="mailto:vivekanmol10@gmail.com" class="contact-link">vivekanmol10@gmail.com</a></p>
+      <p>Phone Number: <a href="tel:+918541962538" class="contact-link">+91 8541962538</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/vkanmol" target="_blank" class="contact-link">www.linkedin.com/in/vkanmol</a></p>
+      <p>GitHub: <a href="https://www.github.com/VivekKumarAnmol" target="_blank" class="contact-link">www.github.com/VivekKumarAnmol</a></p>
+  </section>
+  
   </main>
 
   <footer>
